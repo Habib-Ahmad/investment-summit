@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
 		padding: '0 5vw',
 		position: 'relative',
 		backgroundSize: 'cover',
-		boxShadow: 'inset 0 0 0 2000px rgb(10 33 53 / 94%);'
+		boxShadow: 'inset 0 0 0 500px #011627e8;'
 	},
 	logo: {
 		zIndex: 100
@@ -55,7 +55,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
 	},
 	text2: {
 		'&.MuiTypography-root': {
-			fontSize: 'clamp(3.5rem,3vw,4rem)',
+			fontSize: 'clamp(3.5rem,6vw,4rem)',
 			fontWeight: 700,
 			lineHeight: '70px',
 			marginBottom: '20px',
@@ -96,11 +96,31 @@ export const useStyles = makeStyles((theme: Theme) => ({
 			bottom: 0,
 			left: 'calc(50% - 5vw)',
 			color: '#fff',
-			transform: 'translateX(-50%)',
 
 			[theme.breakpoints.down('md')]: {
-				left: '50%'
+				left: '50%',
+				transform: 'translateX(-50%)'
 			}
+		}
+	},
+	carett: {
+		width: '20px',
+		animation: `$bounce 1s 5s infinite alternate-reverse ${theme.transitions.easing.easeInOut}`
+	},
+	'@keyframes bounce': {
+		'0%': {
+			transform: 'translateY(40%)'
+		},
+		'100%': {
+			transform: 'translateY(0)'
+		}
+	},
+	'@keyframes appear': {
+		'0%': {
+			transform: 'translateY(40%)'
+		},
+		'100%': {
+			transform: 'translateY(0)'
 		}
 	}
 }));

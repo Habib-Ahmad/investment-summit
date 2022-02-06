@@ -42,8 +42,8 @@ const Home = () => {
 			</Button>
 
 			<IconButton className={classes.scroll} disableRipple>
-				<img src={doubleCarett} alt="" style={{ width: '30px' }} />
-				<Typography>Scroll down</Typography>
+				<img src={doubleCarett} alt="" className={classes.carett} />
+				<Typography sx={{ fontSize: '.7rem' }}>Scroll down</Typography>
 			</IconButton>
 		</Box>
 	);
