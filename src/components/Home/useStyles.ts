@@ -7,7 +7,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
 		padding: '0 5vw',
 		position: 'relative',
 		backgroundSize: 'cover',
-		boxShadow: 'inset 0 0 0 500px #011627e8;'
+		boxShadow: 'inset 0 0 0 500px #011627e8',
+		backdropFilter: 'blur(4px)'
 	},
 	logo: {
 		zIndex: 100
@@ -96,6 +97,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
 			bottom: 0,
 			left: 'calc(50% - 5vw)',
 			color: '#fff',
+			animation: `$appear 1s ${theme.transitions.easing.easeInOut}`,
 
 			[theme.breakpoints.down('md')]: {
 				left: '50%',
@@ -117,10 +119,12 @@ export const useStyles = makeStyles((theme: Theme) => ({
 	},
 	'@keyframes appear': {
 		'0%': {
-			transform: 'translateY(40%)'
+			transform: 'translateY(40%)',
+			opacity: 0
 		},
 		'100%': {
-			transform: 'translateY(0)'
+			transform: 'translateY(0)',
+			opacity: 1
 		}
 	}
 }));

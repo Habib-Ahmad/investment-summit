@@ -41,7 +41,7 @@ const Home = () => {
 				Register
 			</Button>
 
-			<IconButton className={classes.scroll} disableRipple>
+			<IconButton className={classes.scroll} disableRipple href="#/">
 				<img src={doubleCarett} alt="" className={classes.carett} />
 				<Typography sx={{ fontSize: '.7rem' }}>Scroll down</Typography>
 			</IconButton>
