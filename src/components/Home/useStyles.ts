@@ -7,8 +7,12 @@ export const useStyles = makeStyles((theme: Theme) => ({
 		padding: '0 5vw',
 		position: 'relative',
 		backgroundSize: 'cover',
-		boxShadow: 'inset 0 0 0 500px #011627e8',
-		backdropFilter: 'blur(4px)'
+		boxShadow: 'inset 0 0 0 2000px #011627e8',
+		backdropFilter: 'blur(4px)',
+
+		[theme.breakpoints.only('sm')]: {
+			padding: '0 10vw'
+		}
 	},
 	logo: {
 		zIndex: 100
@@ -20,6 +24,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
 
 		[theme.breakpoints.down('md')]: {
 			width: '100%'
+		}
+	},
+	br: {
+		[theme.breakpoints.only('sm')]: {
+			display: 'none'
 		}
 	},
 	stepper: {
@@ -95,14 +104,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
 			display: 'block',
 			position: 'absolute',
 			bottom: 0,
-			left: 'calc(50% - 5vw)',
+			left: '50%',
+			transform: 'translateX(-50%)',
 			color: '#fff',
-			animation: `$appear 1s ${theme.transitions.easing.easeInOut}`,
-
-			[theme.breakpoints.down('md')]: {
-				left: '50%',
-				transform: 'translateX(-50%)'
-			}
+			animation: `$appear 1s ${theme.transitions.easing.easeInOut}`
 		}
 	},
 	carett: {

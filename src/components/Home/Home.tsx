@@ -27,7 +27,8 @@ const Home = () => {
 						<img src={line} alt="line" className={classes.line} />
 					</Box>
 					<Typography className={classes.text2}>
-						Investors <br /> <span style={{ color: '#41ead4' }}>Summit</span>
+						Investors <br className={classes.br} />
+						<span style={{ color: '#41ead4' }}>Summit</span>
 					</Typography>
 					<Typography className={classes.text3}>
 						Neque, eros commodo, nascetur ullamcorper vitae. Tincidunt ut

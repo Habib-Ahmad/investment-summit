@@ -1,7 +1,8 @@
-import { Box } from '@mui/material';
-import { useCallback, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
 import { useStyles } from './useStyles';
+import { Box, IconButton, SwipeableDrawer, useMediaQuery } from '@mui/material';
+import { Menu } from '@mui/icons-material';
+import { NavLink } from 'react-router-dom';
 
 const links = [
 	{
@@ -23,7 +24,10 @@ const links = [
 ];
 
 const NavBar = () => {
+	const [displayDrawer, setDisplayDrawer] = useState<boolean>(false);
 	const classes = useStyles();
+	const isDesktop = useMediaQuery('(min-width: 600px)');
+
 	const indicator = document.querySelector<HTMLElement>('.navIndicator');
 	const items = document.querySelectorAll('.navItem');
 
@@ -58,11 +62,44 @@ const NavBar = () => {
 		navbarEffect();
 	}, [navbarEffect]);
 
+	const toggleDrawer =
+		(toggle: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+			if (
+				event &&
+				event.type === 'keydown' &&
+				((event as React.KeyboardEvent).key === 'Tab' ||
+					(event as React.KeyboardEvent).key === 'Shift')
+			) {
+				return;
+			}
+
+			setDisplayDrawer(toggle);
+		};
+
+	if (!isDesktop)
+		return (
+			<Box id="navbar" className={classes.hamburger}>
+				<IconButton onClick={toggleDrawer(true)}>
+					<Menu sx={{ color: '#41ead4', fontSize: '30px' }} />
+				</IconButton>
+				<SwipeableDrawer
+					anchor="right"
+					open={displayDrawer}
+					onClose={toggleDrawer(false)}
+					onOpen={toggleDrawer(true)}
+					// className={classes.drawer}
+				>
+					Hi
+				</SwipeableDrawer>
+			</Box>
+		);
+
 	return (
 		<Box id="navbar" className={classes.navbar}>
-			<Box>
+			<Box className={classes.linkWrapper}>
 				{links.map((link) => (
 					<NavLink
+						key={link.name}
 						className={`${classes.link} navItem`}
 						to={link.to}
 						active-color="#41ead4"

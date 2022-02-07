@@ -4,11 +4,24 @@ import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles((theme: Theme) => ({
 	navbar: {
 		display: 'flex',
-		alignItems: 'center',
 		justifyContent: 'center',
+		alignItems: 'flex-end',
 		height: '15vh',
 		backgroundColor: '#011627',
-		position: 'relative',
+		position: 'relative'
+	},
+	hamburger: {
+		display: 'flex',
+		justifyContent: 'right',
+		height: '10vh',
+		backgroundColor: '#011627',
+		borderBottom: '1px solid #41ead447'
+	},
+	linkWrapper: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: '70%',
 		borderBottom: '1px solid #41ead4'
 	},
 	link: {
@@ -21,8 +34,12 @@ export const useStyles = makeStyles((theme: Theme) => ({
 		fontWeight: 300,
 		fontSize: '1.3rem',
 		position: 'relative',
-		width: '400px',
+		width: '25%',
 		textAlign: 'center',
+
+		[theme.breakpoints.down('md')]: {
+			margin: '0 30px'
+		},
 
 		'&:before': {
 			content: '',
