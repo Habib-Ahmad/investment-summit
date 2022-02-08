@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useStyles } from './useStyles';
 import { Box, IconButton, SwipeableDrawer, useMediaQuery } from '@mui/material';
 import { Menu } from '@mui/icons-material';
@@ -74,6 +74,7 @@ const NavBar = () => {
 			}
 
 			setDisplayDrawer(toggle);
+			console.log(toggle);
 		};
 
 	if (!isDesktop)
@@ -87,28 +88,39 @@ const NavBar = () => {
 					open={displayDrawer}
 					onClose={toggleDrawer(false)}
 					onOpen={toggleDrawer(true)}
-					// className={classes.drawer}
+					className={classes.drawer}
 				>
-					Hi
+					{links.map((link) => (
+						<NavLink
+							key={link.name}
+							className={classes.link}
+							to={link.to}
+							active-color="#41ead4"
+						>
+							{link.name}
+						</NavLink>
+					))}
 				</SwipeableDrawer>
 			</Box>
 		);
 
 	return (
-		<Box id="navbar" className={classes.navbar}>
-			<Box className={classes.linkWrapper}>
-				{links.map((link) => (
-					<NavLink
-						key={link.name}
-						className={`${classes.link} navItem`}
-						to={link.to}
-						active-color="#41ead4"
-					>
-						{link.name}
-					</NavLink>
-				))}
+		<Box sx={{ position: 'sticky', top: 0 }}>
+			<Box id="navbar" className={classes.navbar}>
+				<Box className={classes.linkWrapper}>
+					{links.map((link) => (
+						<NavLink
+							key={link.name}
+							className={`${classes.link} navItem`}
+							to={link.to}
+							active-color="#41ead4"
+						>
+							{link.name}
+						</NavLink>
+					))}
+				</Box>
+				<Box className={`${classes.indicator} navIndicator`} />
 			</Box>
-			<Box className={`${classes.indicator} navIndicator`} />
 		</Box>
 	);
 };

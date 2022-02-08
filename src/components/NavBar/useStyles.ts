@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'flex-end',
-		height: '15vh',
+		height: '10vh',
 		backgroundColor: '#011627',
 		position: 'relative'
 	},
@@ -16,6 +16,12 @@ export const useStyles = makeStyles((theme: Theme) => ({
 		height: '10vh',
 		backgroundColor: '#011627',
 		borderBottom: '1px solid #41ead447'
+	},
+	drawer: {
+		'&>.MuiPaper-root': {
+			width: 200,
+			backgroundColor: '#011627'
+		}
 	},
 	linkWrapper: {
 		display: 'flex',
@@ -34,7 +40,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
 		fontWeight: 300,
 		fontSize: '1.3rem',
 		position: 'relative',
-		width: '25%',
 		textAlign: 'center',
 
 		[theme.breakpoints.down('md')]: {
